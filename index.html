@@ -177,7 +177,7 @@
     </div>
     <script src="calendar.js"></script>
     <script>   
-        new datePicker('#datepicker',{
+        var datePicker = new datePicker('#datepicker',{
             time: new Date(),
             callback: function(data){
                 // data的格式为：{year: '', month: '', date: ''}
