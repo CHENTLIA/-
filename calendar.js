@@ -160,55 +160,51 @@
             var self = this;
             var arr = self.getClass('dateBox')[0].getElementsByTagName('span');
             var str;
-            for(var i = 0; i < arr.length; i++) {
-                (function (i) {  
-                    arr[i].onclick = function () { 
-                        for(var j = 0; j < arr.length; j++) {
-                            arr[j].classList.remove('date-on')     
-                        } 
-                        if(i == new Date(self.year, self.month, 1).getDay()+self.date-1) {
-                            self.date = parseInt(arr[i].innerText)
-                            self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
-                        }else if( i < new Date(self.year, self.month, 1).getDay()){
-    
-                        } else if(i >= new Date(self.year, self.month+1, 0).getDate()+new Date(self.year, self.month, 1).getDay()){
-    
-                        }
-                        else{
-                            arr[i].classList += 'date-on'
-                            
-                            str = arr[i].innerText;   
-                            self.date = parseInt(arr[i].innerText)
-                            self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
-                        }
+            for(let i = 0; i < arr.length; i++) {
+                arr[i].onclick = function () { 
+                    for(var j = 0; j < arr.length; j++) {
+                        arr[j].classList.remove('date-on')     
+                    } 
+                    if(i == new Date(self.year, self.month, 1).getDay()+self.date-1) {
+                        self.date = parseInt(arr[i].innerText)
+                        self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
+                    }else if( i < new Date(self.year, self.month, 1).getDay()){
+
+                    } else if(i >= new Date(self.year, self.month+1, 0).getDate()+new Date(self.year, self.month, 1).getDay()){
+
                     }
-                })(i)
-                (function (i) {  
-                    arr[i].ondblclick = function () { 
-                        for(var j = 0; j < arr.length; j++) {
-                            arr[j].classList.remove('date-on')
-                        } 
-                        if(i == new Date(self.year, self.month, 1).getDay()+self.date-1) {
-                            self.date = parseInt(arr[i].innerText)
-                            self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
-                            self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
-                        }else if( i < new Date(self.year, self.month, 1).getDay()){
-    
-                        } else if(i >= new Date(self.year, self.month+1, 0).getDate()+new Date(self.year, self.month, 1).getDay()){
-    
-                        }
-                        else{
-                            arr[i].classList += 'date-on'
-                            str = arr[i].innerText;   
-                            self.date = parseInt(str)
-                            // console.log(self.date)
-                            self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
-                            self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
-                        }
+                    else{
+                        arr[i].classList += 'date-on'
                         
-                        self.dateBoxW.style.display = 'none'
+                        str = arr[i].innerText;   
+                        self.date = parseInt(arr[i].innerText)
+                        self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
                     }
-                })(i)
+                }
+                arr[i].ondblclick = function () { 
+                    for(var j = 0; j < arr.length; j++) {
+                        arr[j].classList.remove('date-on')
+                    } 
+                    if(i == new Date(self.year, self.month, 1).getDay()+self.date-1) {
+                        self.date = parseInt(arr[i].innerText)
+                        self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
+                        self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
+                    }else if( i < new Date(self.year, self.month, 1).getDay()){
+
+                    } else if(i >= new Date(self.year, self.month+1, 0).getDate()+new Date(self.year, self.month, 1).getDay()){
+
+                    }
+                    else{
+                        arr[i].classList += 'date-on'
+                        str = arr[i].innerText;   
+                        self.date = parseInt(str)
+                        // console.log(self.date)
+                        self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
+                        self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
+                    }
+                    
+                    self.dateBoxW.style.display = 'none'
+                }
                 
             }
             // console.log(str)
