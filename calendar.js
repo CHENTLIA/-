@@ -98,7 +98,7 @@
         })
     }
     datePicker.prototype = {
-        init(){
+        init: function(){
             var self = this;
             self.allWays(self.year, self.month)
             self.getClass('current-date')[0].addEventListener('click', function(e) {
@@ -289,7 +289,7 @@
                 })(k)
             }
         },
-        tabYear(data,direction) {
+        tabYear: function(data,direction) {
             var self = this;
             self.getClass('prev-year')[0].addEventListener('click', function () {  
                 self.getId('year-all').remove()
@@ -393,7 +393,7 @@
             self.dateBoxW.appendChild(self.yOrMAll)
         },
         // 年份月份激活
-        year_month_clickLive() {
+        year_month_clickLive: function() {
             var self = this
             self.getClass('year')[0].addEventListener('click', function() {
                 self.yearClick()
