@@ -1,8 +1,7 @@
-;(function (window, document) {  
-    var defaultOption = {
-        oNext: "true",
-        oPrev: 'true'
-    }
+﻿;(function (window, document) {
+    var defaultOptions = {
+    
+    }  
     function addZero(num) {  
         if(num>0&&num<10){
             num="0"+num
@@ -13,14 +12,25 @@
         if(!this instanceof datePicker) {
             return new datePicker(targetDom, options)
         }
+        // console.log(options)
         var self = this;
-        self = Object.assign(self, options, defaultOption)
+        self = Object.assign(self, options, defaultOptions)
+        // console.log(self)
         if((typeof targetDom) === 'string') {
             self.targetDom = document.querySelector(targetDom)
         } else {
             self.targetDom = targetDom
         }
+        // console.log(self)
+        // self.callback = function () { };
+        // self.callback = 
+        // if(options.callback)
+        self.cb = function () { };
+        if(self.callback && typeof self.callback === 'function'){
+            self.cb = self.callback
+        }
         self.targetDom.value = new Date(self.time).getFullYear()+'-'+addZero((new Date(self.time).getMonth()+1))+'-'+addZero(new Date(self.time).getDate())
+        self.cb({year:new Date(self.time).getFullYear(), month:addZero((new Date(self.time).getMonth()+1)), date:addZero(new Date(self.time).getDate())})
         var dateBox = document.createElement('div')
         var oHead = document.createElement('div')
         var dateBoxW = document.createElement('div')
@@ -178,6 +188,7 @@
                     if(i == new Date(self.year, self.month, 1).getDay()+self.date-1) {
                         self.date = parseInt(arr[i].innerText)
                         self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
+                        self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
                     }else if( i < new Date(self.year, self.month, 1).getDay()){
 
                     } else if(i >= new Date(self.year, self.month+1, 0).getDate()+new Date(self.year, self.month, 1).getDay()){
@@ -189,8 +200,9 @@
                         self.date = parseInt(str)
                         // console.log(self.date)
                         self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(arr[i].innerText)
-                        
+                        self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
                     }
+                    
                     self.dateBoxW.style.display = 'none'
                 }
                 
@@ -320,6 +332,8 @@
             self.getClass('date-submit')[0].addEventListener('click', function () {  
                 self.targetDom.value = self.year + '-' + addZero(self.month+1) +'-'+ addZero(self.date)
                 self.dateBoxW.style.display = 'none'
+                self.cb({year:self.year, month:addZero(self.month+1), date:addZero(self.date)})
+                // console.log(self.cb)
             })
         },
         // 某些共同的方法
