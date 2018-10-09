@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./style/normalize.css">
+    <title>Calendar日历</title>
+    <style>
+        .calendar{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .tips{
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #84331f;
+            text-align: center;
+            width: 100%;
+        }
+        #datepicker{
+            width: 100%;
+            margin-top: 10px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px; 
+            box-sizing: border-box;
+        }
+        .dateBoxW{
+            width: 100%;
+            overflow: hidden;
+            margin-top: 10px;
+            display: none;
+            border: 1px solid #ccc;
+        }
+        .ohead{
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #ccc;
+        }
+        .ohead .tabM{
+            position: absolute;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            background: #4eab35;
+            color: #fff;
+            cursor: pointer;
+        }
+        .ohead .tabM:hover{
+            /* background: #fff; */
+            color: #f94000;
+        }
+        .ohead .year, .ohead .month{
+            cursor: pointer;
+        }
+        .tabM.tabPrev{
+            left: 0;
+        }
+        .tabM.tabNext{
+            right: 0;
+        }
+        /* 星期几的样式 */
+        .oweek{
+            width: 100%;
+            height: 25px;
+            line-height: 24px;
+            border-bottom: 1px solid #ccc;
+        }
+        .oweek span{
+            display: inline-block;
+            width: 14.2%;
+            text-align: center;
+        }
+        /* 日期样式 */
+        .dateBox{
+            width: 100%;
+        }
+        .dateBox span{
+            display: inline-block;
+            /* float: left; */
+            width: 14.2%;
+            /* border: 1px solid #ccc; */
+            text-align: center;
+            height: 24px;
+            line-height: 24px;
+            cursor: pointer;
+        }
+        /* 非本月的日期 */
+        .dateBox span.gray{
+            color: gray;
+        }
+        .dateBox span.date-on{
+            color: #f94000;
+            /* background:  */
+        }
+        /* 年份(year-all) 月份(month-all)*/
+        .year-all, .month-all{
+            width: 100%;
+        }
+        .select-head{
+            height: 25px;
+            line-height: 24px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+        }
+        .year-list, .month-list{
+            /* margin-top: 5px; */
+            width: 100%;
+            position: relative;
+        }
+        .year-list li, .month-list li{
+            display: inline-block;
+            width: 33.3%;
+            text-align: center;
+            padding: 14px 0;
+            cursor: pointer;
+        }
+        .month-list li{
+            width: 25%;
+        }
+        .currentYear{
+            color: #4eab35;
+        }
+        /* 年份切换 */
+        .tab-year{
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            height: 100%;
+            top: 0;
+            cursor: pointer;
+        }
+        .tab-year i{
+            position: absolute;
+            top: 42%;
+            left: 20%;
+        }
+        .prev-year{
+            left: 0;
+        }
+        .next-year{
+            right: 0;
+        }
+        body{
+            user-select: none;
+        }
+        /* 当前日期 */
+        .date-now{
+            height: 30px;
+            line-height: 30px;
+            border-top: 1px solid #ccc;
+            text-align: right;
+        }
+        .date-now .current-date, .date-submit{
+            display: inline-block;
+            /* height: 24px; */
+            line-height: 24px;
+            /* margin-top: 3px; */
+            box-sizing: border-box;
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <p class="tips">点击弹出日历,双击选中</p>
+        <input type="text" id="datepicker" readonly>
+    </div>
+    <script src="calendar.js"></script>
+    <script>   
+        new datePicker('#datepicker',{
+            time: new Date(),
+        })
+    </script>
+</body>
+</html>

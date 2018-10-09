@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="previous" unicode="&#59583;" d="M659.2-21.333333l66.133333 66.133333L386.133333 384 725.333333 723.2 659.2 789.333333 256 384z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="next" unicode="&#58971;" d="M364.8 789.333333L298.666667 723.2 637.866667 384 298.666667 44.8l66.133333-66.133333L768 384z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="pagenext" unicode="&#58987;" d="M624.827 351.949l-228.586-314.306c-20.79-28.586-14.47-68.612 14.116-89.402 28.586-20.789 68.612-14.469 89.402 14.116l256 352c16.321 22.442 16.321 52.844 0 75.286l-256 352c-20.79 28.586-60.816 34.906-89.402 14.116-28.586-20.79-34.906-60.817-14.116-89.402l228.586-314.408z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="pagepreview" unicode="&#58988;" d="M268.241 389.643c-16.321-22.442-16.321-52.844 0-75.286l256-352c20.79-28.586 60.816-34.906 89.402-14.116 28.586 20.79 34.906 60.817 14.116 89.402l-228.504 314.52 228.504 314.194c20.79 28.586 14.47 68.612-14.116 89.402-28.586 20.789-68.612 14.469-89.402-14.116l-256-352z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
