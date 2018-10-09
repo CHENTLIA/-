@@ -179,7 +179,7 @@
     <script>   
         new datePicker('#datepicker',{
             time: new Date(),
-            callback(data){
+            callback: function(data){
                 // data的格式为：{year: '', month: '', date: ''}
                 // console.log(data)
             }
